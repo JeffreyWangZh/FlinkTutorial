@@ -1,0 +1,6 @@
+this is wordcount test, please have a try
+hello world
+hello flink
+hello spark
+hello scale
+how are you
