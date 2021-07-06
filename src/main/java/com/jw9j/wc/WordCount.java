@@ -15,7 +15,7 @@ public class WordCount {
         ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
 
         // 2, 从文件中读取数据
-        String inputPath = "E:\\code\\FlinkTutorial\\src\\main\\resources\\wordcount.txt";
+        String inputPath = "src/main/resources/wordcount.txt";
         // DataSet
         DataSource<String>  inputDataSet = env.readTextFile(inputPath);
 
