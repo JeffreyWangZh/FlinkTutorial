@@ -1,5 +1,6 @@
 package com.jw9j.source;
 
+<<<<<<< HEAD
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
