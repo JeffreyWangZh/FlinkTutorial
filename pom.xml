@@ -33,16 +33,22 @@
         </dependency>
 
         <!-- JDBC SQL Connector-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-connector-jdbc_2.11</artifactId>-->
-<!--            <version>1.13.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_2.11</artifactId>
+            <version>1.13.0</version>
+        </dependency>
         <!--  mysql connector-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.34</version>
+        </dependency>
+        <!--  kafka connector  -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_2.11</artifactId>
+            <version>1.13.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
