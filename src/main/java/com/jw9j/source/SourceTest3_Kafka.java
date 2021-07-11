@@ -9,6 +9,10 @@ import java.util.Properties;
 
 /**
  * 从kafka读取数据
+ *
+ * 1. 引用pom
+ * 2. 开启kafka 创建生产者,
+ *      kafka-console-producer -bootstrap-server localhost:9092 --topic sensor
  * @Author jw9j
  * @create 2021/7/7 1:20
  */
