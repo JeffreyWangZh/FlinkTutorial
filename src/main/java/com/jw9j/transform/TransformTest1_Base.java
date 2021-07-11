@@ -8,6 +8,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.Collector;
 
 /**
+ * 基本转换 map , flatMap, filter;
  * @Author jw9j
  * @create 2021/7/7 23:48
  */
