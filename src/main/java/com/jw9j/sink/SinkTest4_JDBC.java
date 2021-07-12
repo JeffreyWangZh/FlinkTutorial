@@ -1,6 +1,7 @@
 package com.jw9j.sink;
 
 import com.jw9j.beans.SensorReading;
+import com.jw9j.source.SourceTest4_UDF;
 import com.mysql.cj.jdbc.Driver;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -34,6 +35,9 @@ public class SinkTest4_JDBC {
             return new SensorReading(fields[0],new Long(fields[1]),new Double(fields[2]));
         });
 
+        // 模拟实时生产数据
+        dataStream = env.addSource(new SourceTest4_UDF.MySensorSource());
+
         dataStream.addSink(new MyJDBCSink());
         env.execute();
     }
@@ -60,14 +64,16 @@ public class SinkTest4_JDBC {
 
         @Override
         public void open(Configuration parameters) throws Exception {
-            connection = DriverManager.getConnection("jdbc:mysql://10.126.21.99:3306/bluemo","root","512731!ncjwa");
+            connection = DriverManager.getConnection("jdbc:mysql://10.126.21.99:3306/bluemo","root","aA2N!eVy93Vg");
             inserStmt = connection.prepareStatement("insert into sensor_temp(id,temp) value(?,?)");
             updateStmt = connection.prepareStatement("update sensor_temp set temp = ? where id = ?");
         }
 
         @Override
         public void close() throws Exception {
-            super.close();
+            inserStmt.close();
+            updateStmt.close();
+            connection.close();
         }
     }
 }
