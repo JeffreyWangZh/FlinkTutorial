@@ -8,7 +8,8 @@ import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
 /**
- *  规约
+ *  reduce
+ *
  * @Author jw9j
  * @create 2021/7/8 1:14
  */

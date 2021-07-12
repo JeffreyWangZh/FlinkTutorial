@@ -50,6 +50,28 @@
             <artifactId>flink-connector-kafka_2.11</artifactId>
             <version>1.13.0</version>
         </dependency>
+
+        <!-- redis connector   -->
+        <dependency>
+            <groupId>org.apache.bahir</groupId>
+            <artifactId>flink-connector-redis_2.11</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!--  es connector   -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-elasticsearch7_2.12</artifactId>
+            <version>1.13.1</version>
+        </dependency>
+
+        <!--  MySQL Connector   -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.18</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
