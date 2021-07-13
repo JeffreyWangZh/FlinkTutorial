@@ -19,3 +19,7 @@ Flink from zero to one <br>
 2. Java和Scala元组
 3. Scala样例类
 4. Java简单对象(POJOS)
+
+## 六: Flink Sink
+官方支持的数据连接器(flink 1.10):
+kafka,ES,Hadoop,RabbitMQ,Apache Cassandra,
