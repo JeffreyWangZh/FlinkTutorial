@@ -47,7 +47,7 @@ public class WindowsTest_TimeWindows {
 
         // 进行windows 操作必须使用keyBY
         // windows Assigner 窗口分配器
-        // 增量聚合
+        // 1. 增量聚合
 //        DataStream<Integer> resultStream = dataStream.keyBy(SensorReading::getId)
 //                .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
 //                //
