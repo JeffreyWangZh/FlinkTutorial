@@ -7,10 +7,12 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.windowing.WindowFunction;
+import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
+import org.apache.flink.util.OutputTag;
 
 
 /**
@@ -20,12 +22,13 @@ import org.apache.flink.util.Collector;
  *  .timeWindow(Time)
  *  滑动时间窗口 slide
  *  会话窗口 session
- * 2. 计数窗口
+ *
+ * 其他API
  *
  * @author Zenghui Wang
  * @create 2021-07-13 8:59 PM
  */
-public class WindowsTest_TimeWindows {
+public class WindowsTest1_TimeWindows {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
@@ -80,6 +83,21 @@ public class WindowsTest_TimeWindows {
                         out.collect(new Tuple3<>(id,windowEnd,count));
                     }
                 });
+
+        // 其他可选Api；
+        // allow
+        OutputTag<SensorReading> outputTag = new OutputTag<SensorReading>("late"){
+
+        };
+        SingleOutputStreamOperator<SensorReading> sumStream =  dataStream.keyBy(SensorReading::getId)
+//                .timeWindow(Time.seconds(12))
+//                .allowedLateness()
+                .window(TumblingEventTimeWindows.of(Time.seconds(15)))
+                .allowedLateness(Time.minutes(1))
+                .sideOutputLateData(outputTag)
+                .sum("temperature");
+
+        sumStream.getSideOutput(outputTag).print("late");
         resultStream2.print();
         env.execute();
     }
