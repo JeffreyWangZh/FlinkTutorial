@@ -7,10 +7,10 @@ Flink from zero to one <br>
 <br>
 
 ## 三. flink Source 支持与简单实现
-1. [Collection](src/main/java/com/jw9j/source/SourceTest3_Collection.java) 集合
-2. [文件读取](src/main/java/com/jw9j/source/SourceTest3_File.java)
-3. [Kafka](src/main/java/com/jw9j/source/SourceTest3_Kafka.java)等消息队列
-4. [UDF](src/main/java/com/jw9j/source/SourceTest4_UDF.java)( 函数类,匿名函数类,富函数)
+1. [Collection](src/main/java/com/jw9j/flink/source/SourceTest3_Collection.java) 集合
+2. [文件读取](src/main/java/com/jw9j/flink/source/SourceTest3_File.java)
+3. [Kafka](src/main/java/com/jw9j/flink/source/SourceTest3_Kafka.java)等消息队列
+4. [UDF](src/main/java/com/jw9j/flink/source/SourceTest4_UDF.java)( 函数类,匿名函数类,富函数)
    > 富函数
    > 富函数可以获取运行环境上下文,并拥有一些生命周期方法,所以可以实现更复杂的功能.
 ## 四. flink中的Transform
@@ -26,11 +26,11 @@ Flink from zero to one <br>
 kafka,ES,Hadoop,RabbitMQ,Apache Cassandra,
 
 ## 七：FLink windows
-[时间窗口](src/main/java/com/jw9j/window/WindowsTest1_TimeWindows.java)
+[时间窗口](src/main/java/com/jw9j/flink/window/WindowsTest1_TimeWindows.java)
 1. 滚动时间窗口
 2. 滑动时间窗口
 3. 会话窗口
-[计数窗口](src/main/java/com/jw9j/window/WindowsTest2_CountWindow.java)
+[计数窗口](src/main/java/com/jw9j/flink/window/WindowsTest2_CountWindow.java)
 
 ### 其他api
 trigger() - 触发器： 定义windows 什么时候关闭，触发计算并输出结果;</br>
